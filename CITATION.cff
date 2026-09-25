@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "peptide-rpes: RPES scoring and peptide-representation benchmark"
+abstract: "Reproduction package for a methods/resource paper on RPES (Rank-Percentile Ensemble Score) — a ceiling-effect-free peptide bioactivity ranking score — and a head-to-head benchmark of physicochemical descriptors, a PCA latent space, and ESM-2 embeddings for short food-derived peptides."
+authors:
+  - family-names: "Yang"
+    given-names: "Yongxin"
+    orcid: "https://orcid.org/0009-0004-9698-6552"
+repository-code: "https://github.com/yyx-4113/peptide-rpes"
+url: "https://github.com/yyx-4113/peptide-rpes"
+license: MIT
+commit: "v1.0.0"
+version: "1.0.0"
+date-released: "2026-09-25"
+keywords:
+  - "peptide scoring"
+  - "RPES"
+  - "representation learning"
+  - "protein language model"
+  - "ESM-2"
+  - "PCA"
+  - "food-derived peptides"
+  - "benchmarking"

@@ -1,0 +1,123 @@
+{
+  "method": "RPES (Rank-Percentile Ensemble Score) \u2014 deterministic recompute (B-pivot)",
+  "rpes_stats": {
+    "mean": 0.4155886769294739,
+    "std": 0.14164075255393982,
+    "max": 0.8342121839523315,
+    "p99": 0.7375671863555908,
+    "no_ceiling": true,
+    "seed": 42,
+    "n_peptides": 403461,
+    "computed_at": "2026-09-25 17:21:45"
+  },
+  "top20_peptides": [
+    {
+      "rank": 1,
+      "peptide": "YRPPIIPIGR",
+      "rpes": 0.8342121839523315
+    },
+    {
+      "rank": 2,
+      "peptide": "YVKGGGVHGW",
+      "rpes": 0.8332862257957458
+    },
+    {
+      "rank": 3,
+      "peptide": "GGAGVVYHGK",
+      "rpes": 0.8315796852111816
+    },
+    {
+      "rank": 4,
+      "peptide": "HFMPFGGGMK",
+      "rpes": 0.829810619354248
+    },
+    {
+      "rank": 5,
+      "peptide": "GGAGIVYHGK",
+      "rpes": 0.8261151313781738
+    },
+    {
+      "rank": 6,
+      "peptide": "FHCAPNIPHY",
+      "rpes": 0.8241910934448242
+    },
+    {
+      "rank": 7,
+      "peptide": "PGPGRITAYL",
+      "rpes": 0.8232039213180542
+    },
+    {
+      "rank": 8,
+      "peptide": "NIYVGGGMGR",
+      "rpes": 0.8229951858520508
+    },
+    {
+      "rank": 9,
+      "peptide": "IHPGYCGFAK",
+      "rpes": 0.8223248720169067
+    },
+    {
+      "rank": 10,
+      "peptide": "PGIGPKMAHL",
+      "rpes": 0.8222417831420898
+    },
+    {
+      "rank": 11,
+      "peptide": "VGFPGASRGW",
+      "rpes": 0.8215388655662537
+    },
+    {
+      "rank": 12,
+      "peptide": "VHGAGHGAW",
+      "rpes": 0.8212687969207764
+    },
+    {
+      "rank": 13,
+      "peptide": "PVPLHGLPAR",
+      "rpes": 0.8210484981536865
+    },
+    {
+      "rank": 14,
+      "peptide": "GVKAAAYNAK",
+      "rpes": 0.8210257887840271
+    },
+    {
+      "rank": 15,
+      "peptide": "AAQAGAKHVY",
+      "rpes": 0.8206519484519958
+    },
+    {
+      "rank": 16,
+      "peptide": "VGKGHGVWHF",
+      "rpes": 0.8198953866958618
+    },
+    {
+      "rank": 17,
+      "peptide": "ALRPGGPPAF",
+      "rpes": 0.8195654153823853
+    },
+    {
+      "rank": 18,
+      "peptide": "GAFRPPVAPY",
+      "rpes": 0.8192988634109497
+    },
+    {
+      "rank": 19,
+      "peptide": "PFQVKCHVGY",
+      "rpes": 0.8186469078063965
+    },
+    {
+      "rank": 20,
+      "peptide": "MPGGAHRAYL",
+      "rpes": 0.8186367750167847
+    }
+  ],
+  "component_rank_means": {
+    "rf": 0.5000012516975403,
+    "bilstm": 0.5000012516975403,
+    "composite_ml": 0.5000012516975403,
+    "ensemble": 0.5000013113021851,
+    "hydro": 0.5000012516975403,
+    "length": 0.5000012516975403
+  }
+}

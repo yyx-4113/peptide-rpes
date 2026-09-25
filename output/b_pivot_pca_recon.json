@@ -1,0 +1,7 @@
+{
+  "n_peptides": 403461,
+  "pca_explained_variance": 0.489031583070755,
+  "reconstruction_accuracy": 0.6165401071105314,
+  "decoder_validity_pct": 100.0,
+  "mean_decoded_length": 20.0
+}

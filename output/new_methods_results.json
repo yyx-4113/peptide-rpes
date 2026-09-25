@@ -1,0 +1,29 @@
+{
+  "rpes_stats": {
+    "mean": 0.4155886769294739,
+    "std": 0.14164075255393982,
+    "max": 0.8342121839523315,
+    "p99": 0.7375671863555908,
+    "no_ceiling": true,
+    "seed": 42,
+    "n_peptides": 403461,
+    "computed_at": "2026-09-25 17:21:45"
+  },
+  "dtr_comparison": {
+    "old_real_mean": 0.8986726654189812,
+    "old_scram_mean": 0.945152893184528,
+    "old_discrimination_ratio": 0.9508225202409686,
+    "new_real_mean": 0.289050497374996,
+    "new_scram_mean": 0.0,
+    "new_discrimination_ratio": 28905049.7374996,
+    "improvement_pct": 3040004645.593756
+  },
+  "active_learning_rpes": {
+    "n_replicates": 3,
+    "mean_improvement": 0.004971067110697429,
+    "std_improvement": 0.007030150527415138,
+    "mean_final": 0.8150808413823446
+  },
+  "rpes_deterministic": true,
+  "rpes_seed": 42
+}

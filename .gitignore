@@ -1,0 +1,11 @@
+# Large artefacts (kept on Zenodo, not in git)
+data/
+models/
+*.npz
+*.npy
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/

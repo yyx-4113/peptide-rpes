@@ -1,0 +1,8 @@
+{
+  "n": 403461,
+  "onehot_build_s": 1.5325891971588135,
+  "pca_fit_s": 2.3770751953125,
+  "pca_transform_s": 0.4300413131713867,
+  "explained_variance": 0.4884504973888397,
+  "per_library_scoring_s_est": 1.0300413131713868
+}

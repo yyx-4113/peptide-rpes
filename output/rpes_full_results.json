@@ -1,0 +1,284 @@
+{
+  "experiment": "RPES Full Re-run",
+  "timestamp": "2026-09-25 17:51:45",
+  "rpes_distribution": {
+    "mean": 0.4155886769294739,
+    "std": 0.14164075255393982,
+    "max": 0.8342121839523315,
+    "p99": 0.7375671863555908,
+    "no_ceiling": true,
+    "seed": 42,
+    "n_peptides": 403461,
+    "computed_at": "2026-09-25 17:21:45"
+  },
+  "three_layer_comparison": {
+    "layer1_natural_best": 0.8342121839523315,
+    "layer1_peptide": "YRPPIIPIGR",
+    "layer2_random_best": 0.7909127473831177,
+    "layer2_random_mean": 0.41754353046417236,
+    "layer2_random_top5": 0.7721853256225586,
+    "layer3_al_mean": 0.8179702957471212,
+    "layer3_al_std": 0.00700630028211384,
+    "layer3_al_min": 0.8081809282302856,
+    "layer3_al_max": 0.8241910934448242,
+    "layer3_details": [
+      {
+        "seed": 42,
+        "best_history": [
+          0.8215388655662537,
+          0.8215388655662537,
+          0.8215388655662537,
+          0.8215388655662537,
+          0.8215388655662537,
+          0.8215388655662537,
+          0.8215388655662537,
+          0.8215388655662537,
+          0.8215388655662537,
+          0.8215388655662537
+        ],
+        "initial_best": 0.8215388655662537,
+        "final_best": 0.8215388655662537,
+        "improvement": 0.0
+      },
+      {
+        "seed": 123,
+        "best_history": [
+          0.8241910934448242,
+          0.8241910934448242,
+          0.8241910934448242,
+          0.8241910934448242,
+          0.8241910934448242,
+          0.8241910934448242,
+          0.8241910934448242,
+          0.8241910934448242,
+          0.8241910934448242,
+          0.8241910934448242
+        ],
+        "initial_best": 0.8241910934448242,
+        "final_best": 0.8241910934448242,
+        "improvement": 0.0
+      },
+      {
+        "seed": 456,
+        "best_history": [
+          0.8081809282302856,
+          0.8081809282302856,
+          0.8081809282302856,
+          0.8081809282302856,
+          0.8081809282302856,
+          0.8081809282302856,
+          0.8081809282302856,
+          0.8081809282302856,
+          0.8081809282302856,
+          0.8081809282302856
+        ],
+        "initial_best": 0.8081809282302856,
+        "final_best": 0.8081809282302856,
+        "improvement": 0.0
+      }
+    ],
+    "layer3_improvement_vs_layer2_pct": 3.421053517411179,
+    "layer3_pct_of_natural": 98.053026733767
+  },
+  "ablation_study": {
+    "full_method": 0.8179702957471212,
+    "full_method_std": 0.00700630028211384,
+    "abl_A_no_al_mean": 0.7999749183654785,
+    "abl_A_no_al_std": 0.0178715530782938,
+    "abl_A_delta": 0.017995377381642697,
+    "abl_B_no_cond_mean": 0.783271074295044,
+    "abl_B_no_cond_std": 0.011710510589182377,
+    "abl_B_delta": 0.03469922145207727,
+    "abl_C_physchem_train_r2": 0.9541149395263857,
+    "abl_C_physchem_test_r2": 0.9550988517733995,
+    "abl_C_predicted_best": 0.8154543398521333
+  },
+  "peptide_analysis": {
+    "top20_peptides": [
+      "YRPPIIPIGR",
+      "YVKGGGVHGW",
+      "GGAGVVYHGK",
+      "HFMPFGGGMK",
+      "GGAGIVYHGK",
+      "FHCAPNIPHY",
+      "PGPGRITAYL",
+      "NIYVGGGMGR",
+      "IHPGYCGFAK",
+      "PGIGPKMAHL",
+      "VGFPGASRGW",
+      "VHGAGHGAW",
+      "PVPLHGLPAR",
+      "GVKAAAYNAK",
+      "AAQAGAKHVY",
+      "VGKGHGVWHF",
+      "ALRPGGPPAF",
+      "GAFRPPVAPY",
+      "PFQVKCHVGY",
+      "MPGGAHRAYL"
+    ],
+    "top20_scores": [
+      0.8342121839523315,
+      0.8332862257957458,
+      0.8315796852111816,
+      0.829810619354248,
+      0.8261151313781738,
+      0.8241910934448242,
+      0.8232039213180542,
+      0.8229951858520508,
+      0.8223248720169067,
+      0.8222417831420898,
+      0.8215388655662537,
+      0.8212687969207764,
+      0.8210484981536865,
+      0.8210257887840271,
+      0.8206519484519958,
+      0.8198953866958618,
+      0.8195654153823853,
+      0.8192988634109497,
+      0.8186469078063965,
+      0.8186367750167847
+    ],
+    "top20_mean_length": 9.95,
+    "top20_aa_composition": {
+      "A": {
+        "top20_pct": 12.1,
+        "natural_pct": 7.4,
+        "enrichment": 1.62
+      },
+      "C": {
+        "top20_pct": 1.5,
+        "natural_pct": 1.8,
+        "enrichment": 0.83
+      },
+      "D": {
+        "top20_pct": 0.0,
+        "natural_pct": 5.6,
+        "enrichment": 0.0
+      },
+      "E": {
+        "top20_pct": 0.0,
+        "natural_pct": 6.6,
+        "enrichment": 0.0
+      },
+      "F": {
+        "top20_pct": 4.5,
+        "natural_pct": 3.9,
+        "enrichment": 1.16
+      },
+      "G": {
+        "top20_pct": 22.1,
+        "natural_pct": 7.2,
+        "enrichment": 3.06
+      },
+      "H": {
+        "top20_pct": 8.0,
+        "natural_pct": 2.4,
+        "enrichment": 3.31
+      },
+      "I": {
+        "top20_pct": 4.5,
+        "natural_pct": 6.1,
+        "enrichment": 0.74
+      },
+      "K": {
+        "top20_pct": 5.5,
+        "natural_pct": 5.1,
+        "enrichment": 1.07
+      },
+      "L": {
+        "top20_pct": 3.0,
+        "natural_pct": 8.6,
+        "enrichment": 0.35
+      },
+      "M": {
+        "top20_pct": 2.5,
+        "natural_pct": 2.4,
+        "enrichment": 1.06
+      },
+      "N": {
+        "top20_pct": 1.5,
+        "natural_pct": 4.7,
+        "enrichment": 0.32
+      },
+      "P": {
+        "top20_pct": 11.6,
+        "natural_pct": 5.1,
+        "enrichment": 2.26
+      },
+      "Q": {
+        "top20_pct": 1.0,
+        "natural_pct": 3.6,
+        "enrichment": 0.28
+      },
+      "R": {
+        "top20_pct": 4.5,
+        "natural_pct": 4.6,
+        "enrichment": 0.98
+      },
+      "S": {
+        "top20_pct": 0.5,
+        "natural_pct": 8.5,
+        "enrichment": 0.06
+      },
+      "T": {
+        "top20_pct": 0.5,
+        "natural_pct": 5.3,
+        "enrichment": 0.09
+      },
+      "V": {
+        "top20_pct": 8.0,
+        "natural_pct": 7.1,
+        "enrichment": 1.13
+      },
+      "W": {
+        "top20_pct": 2.0,
+        "natural_pct": 1.1,
+        "enrichment": 1.78
+      },
+      "Y": {
+        "top20_pct": 6.5,
+        "natural_pct": 2.6,
+        "enrichment": 2.47
+      }
+    },
+    "natural_mean_length": 8.926317537506723,
+    "enriched_residues": [
+      {
+        "aa": "H",
+        "enrichment": 3.31,
+        "top20_pct": 8.0,
+        "natural_pct": 2.4
+      },
+      {
+        "aa": "G",
+        "enrichment": 3.06,
+        "top20_pct": 22.1,
+        "natural_pct": 7.2
+      },
+      {
+        "aa": "Y",
+        "enrichment": 2.47,
+        "top20_pct": 6.5,
+        "natural_pct": 2.6
+      },
+      {
+        "aa": "P",
+        "enrichment": 2.26,
+        "top20_pct": 11.6,
+        "natural_pct": 5.1
+      },
+      {
+        "aa": "W",
+        "enrichment": 1.78,
+        "top20_pct": 2.0,
+        "natural_pct": 1.1
+      },
+      {
+        "aa": "A",
+        "enrichment": 1.62,
+        "top20_pct": 12.1,
+        "natural_pct": 7.4
+      }
+    ]
+  }
+}
