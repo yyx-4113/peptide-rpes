@@ -1,0 +1,32 @@
+{
+  "title": "peptide-rpes: a rank-percentile ensemble score (RPES) and peptide representation benchmark",
+  "upload_type": "software",
+  "description": "Reproduction package for RPES (Rank-Percentile Ensemble Score), a ceiling-effect-free composite peptide-ranking module, and a head-to-head benchmark of three peptide representations (physicochemical descriptors, PCA latent space, ESM-2 protein language model) on 403,461 food-derived peptides. Includes deterministic recomputation scripts, analysis JSONs, and figure generation. See README.md for reproduction commands and honesty gates.",
+  "creators": [
+    {
+      "name": "Yang, Yongxin",
+      "orcid": "0009-0004-9698-6552",
+      "affiliation": "The Second Affiliated Hospital of Fujian University of Traditional Chinese Medicine, Fuzhou, Fujian 350003, China"
+    }
+  ],
+  "keywords": [
+    "RPES",
+    "rank-percentile ensemble score",
+    "peptide representation learning",
+    "protein language model",
+    "ESM-2",
+    "principal component analysis",
+    "food-derived peptides",
+    "peptide ranking",
+    "benchmark"
+  ],
+  "license": "mit",
+  "access_right": "open",
+  "version": "v1.0.0",
+  "related_identifiers": [
+    {
+      "relation": "isSupplementedBy",
+      "identifier": "https://github.com/yyx-4113/peptide-rpes"
+    }
+  ]
+}
