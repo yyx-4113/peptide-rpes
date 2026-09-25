@@ -17,6 +17,7 @@ This repository is the reproduction package for the B-pivot rewrite of the rejec
 | `b_pivot_esm2.py` | ESM-2 head-to-head: descriptors vs PCA+descriptors vs ESM-2+descriptors predicting RPES (3-fold CV on a 5,000-peptide benchmark). Requires `fair-esm` (`pip install fair-esm`; the importable top-level package is `esm`). |
 | `b_pivot_recompute_rpes.py` | **Deterministic** RPES recomputation (seed = 42) for all 403,461 peptides; backs up the pre-fix cache and syncs the headline JSONs. Requires torch + xgboost. |
 | `b_pivot_pca_recon.py` | PCA reconstruction accuracy + decoder validity on the full library. Requires torch (via `phase1_pipeline`). |
+| `b_pivot_matched_init_ablation.py` | **Matched-initialisation ablation (v0.5).** Re-runs the Layer 3 search and three no-loop controls (A′: matched init, 240 candidates; A″: matched init, 2,400 candidates; A: original random-latent procedure) with decoded candidates scored on the **library** percentile scale. Writes `output/ablation_matched_init.json`. Requires torch + xgboost; needs `data/training_peptides.csv` and `models/pca_latent.npz`. Runtime ≈ 3 min. |
 | `rpes_full_experiment.py` | C3 three-layer comparison + ablation (A/B/C) + RPES top-20 peptide analysis. Requires torch + xgboost. |
 | `generate_figures.py` | Regenerates the manuscript figure set (Fig 1 A/B/C composite, Fig 2, Fig S1 scree, Fig S2 latent projection) into `output/figures/`. Requires the large artefacts (peptide CSV + `pca_latent.npz`) and matplotlib. |
 | `phase1_pipeline.py` | The original pipeline module (PCA latent space, physicochemical descriptors, RF/BiLSTM models). Included as a dependency; **imports torch at the top level.** |
@@ -31,8 +32,9 @@ This repository is the reproduction package for the B-pivot rewrite of the rejec
 - `data/merged_peptide_library.csv` — 451,785 raw / 403,461 unique food-derived peptides (walnut, mulberry, black sesame).
 - `models/pca_latent.npz` — PCA latent for 403,461 peptides (~103 MB).
 - `models/esm2_embeddings.npy` — ESM-2 embeddings for 5,000 benchmark peptides.
+- `data/training_peptides.csv` — **373 labelled peptides (73 bioactive positives, 300 negatives)** used by `train_rf_classifier` to build the `rf_score` component of RPES. Small (3.2 kB) but **required**; it was inadvertently omitted from the v1.0.0 GitHub archive and is supplied with the manuscript's supplementary material.
 
-Download these from the Zenodo deposit (see *Data availability* below) and place them in `data/` and `models/`, or set `PEPRPES_DATA_DIR` / `PEPRPES_MODEL_DIR` to point at your own copies. The scripts re-generate `pca_latent.npz` and `esm2_embeddings.npy` if they are absent.
+Download these from the Zenodo deposit (see *Data availability* below) and place them in `data/` and `models/`, or set `PEPRPES_DATA_DIR` / `PEPRPES_MODEL_DIR` to point at your own copies. The scripts re-generate `pca_latent.npz` and `esm2_embeddings.npy` if they are absent; `training_peptides.csv` cannot be regenerated and must be supplied.
 
 ---
 
