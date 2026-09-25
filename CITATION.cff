@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "peptide-rpes: RPES scoring and peptide-representation benchmark"
-abstract: "Reproduction package for a methods/resource paper on RPES (Rank-Percentile Ensemble Score) — a ceiling-effect-free peptide bioactivity ranking score — and a head-to-head benchmark of physicochemical descriptors, a PCA latent space, and ESM-2 embeddings for short food-derived peptides."
+title: "peptide-rpes: RPES peptide-rank scoring and a peptide-representation benchmark"
+abstract: "Reproduction package for a methods/resource paper on RPES (Rank-Percentile Ensemble Score), a ceiling-effect-free rank-aggregation score for short food-derived peptides, and a head-to-head benchmark of physicochemical descriptors, a PCA latent space, and ESM-2 embeddings for the task of predicting RPES. RPES is a transparent aggregation module derived from physicochemical descriptors; it is not a bioactivity predictor, and no external activity label enters its construction. v1.1.0 adds a matched-initialisation ablation showing that the iterative search loop contributes exactly zero gain, corrects the no-loop control (0.8000 to 0.7282 on the library scoring scale), and adds the labelled training set required for full reproduction."
 authors:
   - family-names: "Yang"
     given-names: "Yongxin"
@@ -9,11 +9,12 @@ authors:
 repository-code: "https://github.com/yyx-4113/peptide-rpes"
 url: "https://github.com/yyx-4113/peptide-rpes"
 license: MIT
-commit: "v1.0.0"
-version: "1.0.0"
-date-released: "2026-09-25"
+commit: "v1.1.0"
+version: "1.1.0"
+date-released: "2026-09-26"
 keywords:
   - "peptide scoring"
+  - "rank aggregation"
   - "RPES"
   - "representation learning"
   - "protein language model"
@@ -21,3 +22,4 @@ keywords:
   - "PCA"
   - "food-derived peptides"
   - "benchmarking"
+  - "ablation study"

@@ -1,7 +1,7 @@
 {
-  "title": "peptide-rpes: a rank-percentile ensemble score (RPES) and peptide representation benchmark",
+  "title": "peptide-rpes: a rank-percentile ensemble score (RPES) for peptide-rank scoring and a peptide representation benchmark",
   "upload_type": "software",
-  "description": "Reproduction package for RPES (Rank-Percentile Ensemble Score), a ceiling-effect-free composite peptide-ranking module, and a head-to-head benchmark of three peptide representations (physicochemical descriptors, PCA latent space, ESM-2 protein language model) on 403,461 food-derived peptides. Includes deterministic recomputation scripts, analysis JSONs, and figure generation. See README.md for reproduction commands and honesty gates.",
+  "description": "Reproduction package for RPES (Rank-Percentile Ensemble Score), a ceiling-effect-free rank-aggregation module for short food-derived peptides, and a head-to-head benchmark of three peptide representations (physicochemical descriptors, PCA latent space, ESM-2 protein language model) on 403,461 food-derived peptides. RPES is a transparent composite derived from physicochemical descriptors; it is not a bioactivity predictor, and no external activity label enters its construction. v1.1.0 adds a matched-initialisation ablation demonstrating that the iterative search loop contributes exactly zero gain (Delta = 0.0000 at matched and tenfold candidate budgets), corrects the no-loop control from 0.8000 to 0.7282 on the comparable library scoring scale, and adds the labelled training set required for full reproduction. Includes deterministic recomputation scripts, analysis JSONs, and figure generation. See README.md for reproduction commands and honesty gates.",
   "creators": [
     {
       "name": "Yang, Yongxin",
@@ -22,7 +22,7 @@
   ],
   "license": "mit",
   "access_right": "open",
-  "version": "v1.0.0",
+  "version": "v1.1.0",
   "related_identifiers": [
     {
       "relation": "isSupplementedBy",
