@@ -18,6 +18,7 @@ This repository is the reproduction package for the B-pivot rewrite of the rejec
 | `b_pivot_recompute_rpes.py` | **Deterministic** RPES recomputation (seed = 42) for all 403,461 peptides; backs up the pre-fix cache and syncs the headline JSONs. Requires torch + xgboost. |
 | `b_pivot_pca_recon.py` | PCA reconstruction accuracy + decoder validity on the full library. Requires torch (via `phase1_pipeline`). |
 | `rpes_full_experiment.py` | C3 three-layer comparison + ablation (A/B/C) + RPES top-20 peptide analysis. Requires torch + xgboost. |
+| `generate_figures.py` | Regenerates the manuscript figure set (Fig 1 A/B/C composite, Fig 2, Fig S1 scree, Fig S2 latent projection) into `output/figures/`. Requires the large artefacts (peptide CSV + `pca_latent.npz`) and matplotlib. |
 | `phase1_pipeline.py` | The original pipeline module (PCA latent space, physicochemical descriptors, RF/BiLSTM models). Included as a dependency; **imports torch at the top level.** |
 | `new_methods.py` | `compute_rpes()` and the DTR code (DTR is unused in this revision; kept for audit). |
 | `config.py` | **Portable path configuration.** All paths default to directories inside this repo; override with `PEPRPES_DATA_DIR`, `PEPRPES_MODEL_DIR`, `PEPRPES_OUT_DIR`. |
@@ -68,6 +69,10 @@ python rpes_full_experiment.py
 
 # 6) PCA reconstruction accuracy (requires torch)
 python b_pivot_pca_recon.py
+
+# 7) Regenerate the manuscript figures into output/figures/ (requires matplotlib;
+#    needs the peptide CSV + pca_latent.npz from the Zenodo deposit)
+python generate_figures.py
 ```
 
 If your data / models live elsewhere, set the environment variables:
