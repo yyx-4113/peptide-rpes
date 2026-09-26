@@ -1,6 +1,6 @@
 # peptide-rpes
 
-**RPES — a rank-percentile ensemble score for ceiling-effect-free peptide bioactivity ranking, with a benchmark of PCA and protein-language-model representations for short food-derived peptides.**
+**RPES — a transparent, deterministic rank-percentile ensemble score for peptide-rank scoring, with a benchmark of physicochemical-descriptor, PCA, and protein-language-model representations for short food-derived peptides.**
 
 This repository is the reproduction package for the B-pivot rewrite of the rejected manuscript *"Mechanism-Conditioned Latent-Space Optimization of Sleep-Promoting Peptides via Active Learning with Virtual Cell Validation."* The sleep-promoting / virtual-cell / docking claims were removed; what remains is a transparent scoring module (RPES) and an honest representation benchmark.
 
@@ -32,7 +32,7 @@ This repository is the reproduction package for the B-pivot rewrite of the rejec
 - `data/merged_peptide_library.csv` — 451,785 raw / 403,461 unique food-derived peptides (walnut, mulberry, black sesame).
 - `models/pca_latent.npz` — PCA latent for 403,461 peptides (~103 MB).
 - `models/esm2_embeddings.npy` — ESM-2 embeddings for 5,000 benchmark peptides.
-- `data/training_peptides.csv` — **373 labelled peptides (73 bioactive positives, 300 negatives)** used by `train_rf_classifier` to build the `rf_score` component of RPES. Small (3.2 kB) but **required**; it was inadvertently omitted from the v1.0.0 GitHub archive and is supplied with the manuscript's supplementary material.
+- `data/training_peptides.csv` — **273 labelled peptides (73 bioactive positives, 200 library-derived negatives)** used by `train_rf_classifier` to build the `rf_score` component of RPES. (The function default requests `n_negative=1800`, but the negative slice uses `neg_pool[:n_positive]`, an `n_positive`/`n_negative` mix-up, so the effective set is 73 positives + 200 negatives, not 300.) Small (3.2 kB) but **required**; it was inadvertently omitted from the v1.0.0 GitHub archive and is supplied with the manuscript's supplementary material.
 
 Download these from the Zenodo deposit (see *Data availability* below) and place them in `data/` and `models/`, or set `PEPRPES_DATA_DIR` / `PEPRPES_MODEL_DIR` to point at your own copies. The scripts re-generate `pca_latent.npz` and `esm2_embeddings.npy` if they are absent; `training_peptides.csv` cannot be regenerated and must be supplied.
 
@@ -89,7 +89,7 @@ export PEPRPES_OUT_DIR=/path/to/output
 
 ## Key results (all deterministic, seed = 42)
 
-- **RPES eliminates the weighted-average ceiling:** composite max = **0.8342** (mean 0.416, SD 0.142, p99 0.738) over 403,461 peptides; `no_ceiling = True`.
+- **RPES rescales the composite range (not a discriminability gain):** composite max = **0.8342** (mean 0.416, SD 0.142, p99 0.738) over 403,461 peptides. The 6th component (`ensemble`) is a constant 0.50000125, so RPES is a monotone rescaling of the 5-active-term geometric mean (Spearman(RPES, GM5) = 1.0000000000, top-1000 lists identical); the score therefore shifts the range but does not restore discriminability (see manuscript Table S8).
 - **Representation benchmark (C2):** predicting RPES, 3-fold CV R² on 5,000 peptides — descriptors **0.936** > PCA+descriptors **0.9155** > ESM-2+descriptors **0.907**; full-library held-out test R² descriptors **0.9581** vs PCA+descriptors **0.9581** (Δ < 0.0001). Hand-crafted descriptors suffice; PCA and a general PLM are redundant.
 - **Latent-space search (C3):** reaches **98.1%** of the natural optimum (0.8180 vs 0.8342) and **+3.4%** over random latent sampling, but the iterative loop contributes **zero** improvement and never exceeds the best natural peptide → positioned as in-library rediscovery, not de novo invention.
 - **Compute budget:** scoring a 403,461-peptide library ≈ **1 s** once the one-hot matrix and PCA transform are cached (docking removed).
@@ -98,7 +98,7 @@ export PEPRPES_OUT_DIR=/path/to/output
 
 ## Honesty gates (read before citing)
 
-1. RPES's six components are, directly or indirectly, functions of the ten physicochemical descriptors; RPES is therefore a near-deterministic function of those descriptors (a surrogate predicts it with R² ≈ 0.95–0.96). RPES is a transparent *ceiling-free aggregation module*, not a signal-discovering model.
+1. RPES's six components are, directly or indirectly, functions of the ten physicochemical descriptors; RPES is therefore a near-deterministic function of those descriptors (a surrogate predicts it with R² ≈ 0.95–0.96). RPES is a transparent *range-rescaling aggregation module*, not a signal-discovering model: because the `ensemble` component is a constant, RPES preserves the ordering of the 5-active-term geometric mean (Spearman = 1.000) and so does not create new discriminability.
 2. The original 76.7% PCA reconstruction-accuracy figure could not be reproduced; the full-library value is **61.7%** (corrected).
 3. The iterative search loop adds no gain; the "+3.4% over random" is an *initialisation* effect, not an optimisation effect.
 4. No biological-activity claims are made; no wet-lab validation is presented (out of scope for a methods/resource paper).

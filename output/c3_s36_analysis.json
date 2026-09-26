@@ -188,7 +188,7 @@
         "matched_enrichment": 0.79
       }
     ],
-    "interpretation": "After matching on length (9-10) and hydrophobicity, residual enrichment for Gly/His/Pro/Tyr persists modestly while hydrophobicity-driven residues shrink, indicating the top-20 signature is partly but not wholly a construction artifact of components 5-6."
+    "interpretation": "After STRICT matching on length (9-10) and hydrophobicity (+/-1 SD of the top-20 mean), all six enrichment factors collapse to ~1.0 (H 0.92, G 1.04, Y 1.03, P 0.96, W 1.03, A 1.02); the top-20 residue signature is therefore fully a construction artifact of RPES components 5-6, not an independent biological signal. This v0.9 strict control supersedes the looser v0.8 matched estimate (factors approx 3.5 under a weaker control). See manuscript section 3.6."
   },
   "elapsed_sec": 7.689892292022705
 }
