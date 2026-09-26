@@ -1,0 +1,31 @@
+{
+  "n_peptides": 403461,
+  "rpes_geometric_mean": {
+    "label": "RPES (geometric mean of ranks)",
+    "max": 0.8342121839523315,
+    "mean": 0.4155886750371759,
+    "p99": 0.73756719827652,
+    "p95": 0.6655112504959106,
+    "frac_above_0.85": 0.0,
+    "frac_within_0.05_of_max": 0.0010310785924785792
+  },
+  "old_weighted_raw": {
+    "label": "OLD weighted-average of raw [0,1] components (paper weights)",
+    "max": 0.9202068474564675,
+    "mean": 0.2729048288692692,
+    "p99": 0.6096484390963176,
+    "p95": 0.5083329056284556,
+    "frac_above_0.85": 0.0005477605022542451,
+    "frac_within_0.05_of_max": 0.000369304592017568
+  },
+  "old_rescue_norm01": {
+    "label": "OLD rescue score (codebase, norm01)",
+    "max": 1.0,
+    "mean": 0.2869135437433629,
+    "p99": 0.6606402558619328,
+    "p95": 0.549162274146274,
+    "frac_above_0.85": 0.0019431865781327068,
+    "frac_within_0.05_of_max": 0.0003321262773849269
+  },
+  "elapsed_sec": 225.83729004859924
+}

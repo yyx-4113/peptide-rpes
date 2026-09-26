@@ -1,0 +1,194 @@
+{
+  "c3_significance": {
+    "K_batches": 2000,
+    "batch_size": 3000,
+    "layer2_null_mean_max": 0.8038680183291436,
+    "layer2_null_sd_max": 0.01210206028309413,
+    "layer2_null_p95_max": 0.8229951858520508,
+    "layer2_null_p99_max": 0.8332862257957458,
+    "layer2_null_max_observed": 0.8342121839523315,
+    "layer2_single_best_reported": 0.7909,
+    "layer3_per_seed": [
+      0.8215388655662537,
+      0.8241910934448242,
+      0.8081809282302856
+    ],
+    "layer3_mean": 0.8179702957471212,
+    "layer3_pct_of_natural": 98.1,
+    "layer3_vs_layer2_rel_pct": 3.4,
+    "perm_p_layer3mean_ge_nullmax": 0.1405,
+    "mannwhitney_U_p": 0.02008604171240422,
+    "interpretation": "Layer 3 (0.8180) sits ~1 SD above the random-budget null distribution of maxima (mean 0.8039, p99 0.8333) but is NOT statistically significant (permutation p = 0.14); the apparent +3.4% over the single reported draw (0.7909) is inflated because that draw is a low outlier below the expected null. The elevation is an INITIALISATION effect (Layer 3 starts from the top half of the library), not an optimisation effect."
+  },
+  "s36_residual_enrichment": {
+    "top20_n": 20,
+    "top20_hydro_mean": -0.06338888888888891,
+    "top20_hydro_sd": 0.10690798801415433,
+    "matched_background_n": 5945,
+    "library_n": 451785,
+    "rows": [
+      {
+        "aa": "H",
+        "top20_pct": 8.04,
+        "raw_bg_pct": 2.42,
+        "raw_enrichment": 3.32,
+        "matched_bg_pct": 2.29,
+        "matched_enrichment": 3.51
+      },
+      {
+        "aa": "G",
+        "top20_pct": 22.11,
+        "raw_bg_pct": 7.25,
+        "raw_enrichment": 3.05,
+        "matched_bg_pct": 7.61,
+        "matched_enrichment": 2.9
+      },
+      {
+        "aa": "Y",
+        "top20_pct": 6.53,
+        "raw_bg_pct": 2.72,
+        "raw_enrichment": 2.4,
+        "matched_bg_pct": 2.76,
+        "matched_enrichment": 2.37
+      },
+      {
+        "aa": "P",
+        "top20_pct": 11.56,
+        "raw_bg_pct": 5.06,
+        "raw_enrichment": 2.28,
+        "matched_bg_pct": 4.88,
+        "matched_enrichment": 2.37
+      },
+      {
+        "aa": "W",
+        "top20_pct": 2.01,
+        "raw_bg_pct": 1.16,
+        "raw_enrichment": 1.73,
+        "matched_bg_pct": 1.17,
+        "matched_enrichment": 1.72
+      },
+      {
+        "aa": "A",
+        "top20_pct": 12.06,
+        "raw_bg_pct": 7.4,
+        "raw_enrichment": 1.63,
+        "matched_bg_pct": 7.59,
+        "matched_enrichment": 1.59
+      },
+      {
+        "aa": "L",
+        "top20_pct": 3.02,
+        "raw_bg_pct": 8.81,
+        "raw_enrichment": 0.34,
+        "matched_bg_pct": 9.33,
+        "matched_enrichment": 0.32
+      },
+      {
+        "aa": "S",
+        "top20_pct": 0.5,
+        "raw_bg_pct": 8.33,
+        "raw_enrichment": 0.06,
+        "matched_bg_pct": 8.68,
+        "matched_enrichment": 0.06
+      },
+      {
+        "aa": "T",
+        "top20_pct": 0.5,
+        "raw_bg_pct": 5.26,
+        "raw_enrichment": 0.1,
+        "matched_bg_pct": 5.36,
+        "matched_enrichment": 0.09
+      },
+      {
+        "aa": "D",
+        "top20_pct": 0.0,
+        "raw_bg_pct": 5.57,
+        "raw_enrichment": 0.0,
+        "matched_bg_pct": 5.42,
+        "matched_enrichment": 0.0
+      },
+      {
+        "aa": "E",
+        "top20_pct": 0.0,
+        "raw_bg_pct": 6.55,
+        "raw_enrichment": 0.0,
+        "matched_bg_pct": 6.37,
+        "matched_enrichment": 0.0
+      },
+      {
+        "aa": "R",
+        "top20_pct": 4.52,
+        "raw_bg_pct": 4.72,
+        "raw_enrichment": 0.96,
+        "matched_bg_pct": 3.79,
+        "matched_enrichment": 1.19
+      },
+      {
+        "aa": "V",
+        "top20_pct": 8.04,
+        "raw_bg_pct": 7.07,
+        "raw_enrichment": 1.14,
+        "matched_bg_pct": 7.31,
+        "matched_enrichment": 1.1
+      },
+      {
+        "aa": "I",
+        "top20_pct": 4.52,
+        "raw_bg_pct": 6.05,
+        "raw_enrichment": 0.75,
+        "matched_bg_pct": 6.47,
+        "matched_enrichment": 0.7
+      },
+      {
+        "aa": "F",
+        "top20_pct": 4.52,
+        "raw_bg_pct": 3.99,
+        "raw_enrichment": 1.13,
+        "matched_bg_pct": 4.14,
+        "matched_enrichment": 1.09
+      },
+      {
+        "aa": "K",
+        "top20_pct": 5.53,
+        "raw_bg_pct": 5.22,
+        "raw_enrichment": 1.06,
+        "matched_bg_pct": 4.47,
+        "matched_enrichment": 1.24
+      },
+      {
+        "aa": "M",
+        "top20_pct": 2.51,
+        "raw_bg_pct": 2.36,
+        "raw_enrichment": 1.06,
+        "matched_bg_pct": 2.56,
+        "matched_enrichment": 0.98
+      },
+      {
+        "aa": "N",
+        "top20_pct": 1.51,
+        "raw_bg_pct": 4.66,
+        "raw_enrichment": 0.32,
+        "matched_bg_pct": 4.48,
+        "matched_enrichment": 0.34
+      },
+      {
+        "aa": "Q",
+        "top20_pct": 1.01,
+        "raw_bg_pct": 3.59,
+        "raw_enrichment": 0.28,
+        "matched_bg_pct": 3.43,
+        "matched_enrichment": 0.29
+      },
+      {
+        "aa": "C",
+        "top20_pct": 1.51,
+        "raw_bg_pct": 1.8,
+        "raw_enrichment": 0.84,
+        "matched_bg_pct": 1.91,
+        "matched_enrichment": 0.79
+      }
+    ],
+    "interpretation": "After matching on length (9-10) and hydrophobicity, residual enrichment for Gly/His/Pro/Tyr persists modestly while hydrophobicity-driven residues shrink, indicating the top-20 signature is partly but not wholly a construction artifact of components 5-6."
+  },
+  "elapsed_sec": 7.689892292022705
+}

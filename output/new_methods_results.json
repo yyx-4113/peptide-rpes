@@ -9,21 +9,6 @@
     "n_peptides": 403461,
     "computed_at": "2026-09-25 17:21:45"
   },
-  "dtr_comparison": {
-    "old_real_mean": 0.8986726654189812,
-    "old_scram_mean": 0.945152893184528,
-    "old_discrimination_ratio": 0.9508225202409686,
-    "new_real_mean": 0.289050497374996,
-    "new_scram_mean": 0.0,
-    "new_discrimination_ratio": 28905049.7374996,
-    "improvement_pct": 3040004645.593756
-  },
-  "active_learning_rpes": {
-    "n_replicates": 3,
-    "mean_improvement": 0.004971067110697429,
-    "std_improvement": 0.007030150527415138,
-    "mean_final": 0.8150808413823446
-  },
   "rpes_deterministic": true,
   "rpes_seed": 42
 }

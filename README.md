@@ -90,7 +90,7 @@ export PEPRPES_OUT_DIR=/path/to/output
 ## Key results (all deterministic, seed = 42)
 
 - **RPES eliminates the weighted-average ceiling:** composite max = **0.8342** (mean 0.416, SD 0.142, p99 0.738) over 403,461 peptides; `no_ceiling = True`.
-- **Representation benchmark (C2):** predicting RPES, 3-fold CV R² on 5,000 peptides — descriptors **0.936** > PCA+descriptors **0.916** > ESM-2+descriptors **0.907**; full-library held-out test R² descriptors **0.9581** vs PCA+descriptors **0.9581** (Δ < 0.0001). Hand-crafted descriptors suffice; PCA and a general PLM are redundant.
+- **Representation benchmark (C2):** predicting RPES, 3-fold CV R² on 5,000 peptides — descriptors **0.936** > PCA+descriptors **0.9155** > ESM-2+descriptors **0.907**; full-library held-out test R² descriptors **0.9581** vs PCA+descriptors **0.9581** (Δ < 0.0001). Hand-crafted descriptors suffice; PCA and a general PLM are redundant.
 - **Latent-space search (C3):** reaches **98.1%** of the natural optimum (0.8180 vs 0.8342) and **+3.4%** over random latent sampling, but the iterative loop contributes **zero** improvement and never exceeds the best natural peptide → positioned as in-library rediscovery, not de novo invention.
 - **Compute budget:** scoring a 403,461-peptide library ≈ **1 s** once the one-hot matrix and PCA transform are cached (docking removed).
 

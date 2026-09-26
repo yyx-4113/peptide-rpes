@@ -91,7 +91,8 @@
     "abl_B_delta": 0.03469922145207727,
     "abl_C_physchem_train_r2": 0.9541149395263857,
     "abl_C_physchem_test_r2": 0.9550988517733995,
-    "abl_C_predicted_best": 0.8154543398521333
+    "abl_C_predicted_best": 0.8154543398521333,
+    "abl_A_legacy_withdrawn_note": "WITHDRAWN: abl_A_no_al_mean (0.8000) and abl_A_delta (+0.018) were computed on a batch-relative candidate scale (n~240) and are NOT comparable to Layer 3 (0.8180). They are superseded by the corrected, library-scale Ablation A = 0.7282 in output/ablation_matched_init.json (see manuscript §3.5)."
   },
   "peptide_analysis": {
     "top20_peptides": [

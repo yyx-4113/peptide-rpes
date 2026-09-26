@@ -9,8 +9,8 @@ authors:
 repository-code: "https://github.com/yyx-4113/peptide-rpes"
 url: "https://github.com/yyx-4113/peptide-rpes"
 license: MIT
-commit: "v1.1.0"
-version: "1.1.0"
+commit: "v1.1.1"
+version: "1.1.1"
 date-released: "2026-09-26"
 keywords:
   - "peptide scoring"
