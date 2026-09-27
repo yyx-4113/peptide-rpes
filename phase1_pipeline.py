@@ -253,6 +253,10 @@ def train_rf_classifier(peptides_df, n_positive=200, n_negative=1800):
     Uses the labeled training data + synthetic negatives from library.
     """
     log("  Training rf_score (RF bioactivity classifier)...")
+    # T2-14 (v1.1.2): seed the negative-selection RNG so the 200 library-derived
+    # negatives are deterministic; RPES is then fully reproducible at seed=42.
+    random.seed(42)
+    np.random.seed(42)
     # Use available labeled data
     train_df = pd.read_csv(os.path.join(DATA_ROOT, 'training_peptides.csv'))
     positives = train_df[train_df['label'] == 1]['peptide'].tolist()

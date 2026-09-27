@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 title: "peptide-rpes: RPES peptide-rank scoring and a peptide-representation benchmark"
-abstract: "Reproduction package for a methods/resource paper on RPES (Rank-Percentile Ensemble Score), a ceiling-effect-free rank-aggregation score for short food-derived peptides, and a head-to-head benchmark of physicochemical descriptors, a PCA latent space, and ESM-2 embeddings for the task of predicting RPES. RPES is a transparent aggregation module derived from physicochemical descriptors; it is not a bioactivity predictor, and no external activity label enters its construction. v1.1.0 adds a matched-initialisation ablation showing that the iterative search loop contributes exactly zero gain, corrects the no-loop control (0.8000 to 0.7282 on the library scoring scale), and adds the labelled training set required for full reproduction."
+abstract: "Reproduction package for a methods/resource paper on RPES (Rank-Percentile Ensemble Score), a ceiling-effect-free rank-aggregation score for short food-derived peptides, and a head-to-head benchmark of physicochemical descriptors, a PCA latent space, and ESM-2 embeddings for the task of predicting RPES. RPES is a transparent aggregation module derived from physicochemical descriptors; it is not a bioactivity predictor, and no external activity label enters its construction. v1.1.0 adds a matched-initialisation ablation showing that the iterative search loop contributes exactly zero gain, corrects the no-loop control (0.8000 to 0.7282 on the library scoring scale), and adds the labelled training set required for full reproduction. v1.1.2 corrects the Section 3.6 label-permutation statistic (it previously compared a raw residue fraction against the enrichment ratio and returned p = 0 for every residue; it now compares enrichment ratios over all 20 residues with a Benjamini-Hochberg correction), regenerates s36_permutation.json (His/Gly/Tyr/Pro remain significant; Trp and Ala do not survive multiplicity correction), seeds the rf_score negative sampling for determinism, and adds a bandwidth sensitivity sweep (s36_sensitivity.json)."
 authors:
   - family-names: "Yang"
     given-names: "Yongxin"
@@ -9,9 +9,9 @@ authors:
 repository-code: "https://github.com/yyx-4113/peptide-rpes"
 url: "https://github.com/yyx-4113/peptide-rpes"
 license: MIT
-commit: "v1.1.1"
-version: "1.1.1"
-date-released: "2026-09-26"
+commit: "v1.1.2"
+version: "1.1.2"
+date-released: "2026-09-27"
 keywords:
   - "peptide scoring"
   - "rank aggregation"

@@ -1,9 +1,16 @@
-"""compute_s36_permutation.py — T2-12 (multiplicity control for S3.6 enrichment).
+"""compute_s36_permutation.py — S3.6 enrichment permutation test + BH-FDR.
 
-Adds a permutation test + BH-FDR over the six focal residues (H, G, Y, P, W, A)
-of the top-20 RPES peptides, and a background regression of RPES on the six
-residue fractions (matched length/hydrophobicity background) to show the
-association is not purely a selection artifact. Output: s36_permutation.json.
+Corrected in v1.1.2:
+  * Fixed the enrichment permutation statistic. The reference distribution is
+    now the enrichment RATIO (observed residue fraction / matched-background
+    fraction), matching the observed statistic `obs_enrich`. The previous version
+    compared a raw residue fraction (~0.08) against the enrichment ratio (~3.6),
+    which was always False and forced permutation_p = 0.0 for every residue.
+  * The permutation test and the Benjamini-Hochberg correction now cover all 20
+    standard amino acids (proper multiplicity control), not only the 6 focal
+    residues. The six focal residues are reported under this 20-test correction.
+
+Output: s36_permutation.json (authoritative source for manuscript S3.6).
 """
 import os, json, time
 import numpy as np
@@ -45,50 +52,61 @@ matched = [peptides[i] for i in np.where(mask)[0]]
 n_matched = len(matched)
 print("matched background n =", n_matched, flush=True)
 
-# per-peptide focal counts / length
-def focal_matrix(seqs):
-    F = np.zeros((len(seqs), len(FOCAL)))
+# per-peptide focal counts / length, for an arbitrary set of amino acids
+def focal_matrix(seqs, aas):
+    F = np.zeros((len(seqs), len(aas)))
     L = np.zeros(len(seqs))
     for i, s in enumerate(seqs):
         c = Counter(s)
         L[i] = len(s)
-        for j, a in enumerate(FOCAL):
+        for j, a in enumerate(aas):
             F[i, j] = c.get(a, 0)
     return F, L
 
-Fm, Lm = focal_matrix(matched)
-
-# observed top20 fractions
+# over ALL 20 standard amino acids (for multiplicity control)
+Fm20, Lm20 = focal_matrix(matched, AA_LIST)
 top_counts = Counter(''.join(top20))
 total_top = sum(top_counts[a] for a in AA_LIST)
+obs_top_frac20 = np.array([top_counts.get(a, 0) / total_top for a in AA_LIST])
+matched_bg_frac20 = Fm20.sum(0) / Lm20.sum()
+obs_enrich20 = obs_top_frac20 / matched_bg_frac20
+
+# over the 6 focal residues (descriptive, unchanged magnitudes)
+Fm, Lm = focal_matrix(matched, FOCAL)
 obs_top_frac = np.array([top_counts.get(a, 0) / total_top for a in FOCAL])
 matched_bg_frac = Fm.sum(0) / Lm.sum()
 obs_enrich = obs_top_frac / matched_bg_frac
 
-# ---- permutation test for enrichment (chunked) ----
+# ---- permutation test for enrichment over ALL 20 AA (chunked) ----
 rng = np.random.default_rng(42)
 N_PERM = 200000
 CHUNK = 20000
-perm_ge = np.zeros(len(FOCAL))
+perm_ge = np.zeros(len(AA_LIST))
 for start in range(0, N_PERM, CHUNK):
     n = min(CHUNK, N_PERM - start)
-    idx = rng.integers(0, n_matched, size=(n, 20))
-    sc = Fm[idx].sum(1)          # (n, 6)
-    sl = Lm[idx].sum(1)          # (n,)
-    sf = sc / sl[:, None]        # (n, 6)
-    perm_ge += (sf >= obs_enrich[None, :]).sum(0)
-perm_p = perm_ge / N_PERM
-# BH-FDR
-order = np.argsort(perm_p)
-m = len(FOCAL)
+    idx = rng.integers(0, n_matched, size=(n, 20))   # 20 sampled peptides
+    sc = Fm20[idx].sum(1)          # (n, 20) focal counts over the 20 sampled peptides
+    sl = Lm20[idx].sum(1)          # (n,) total length over the 20 sampled peptides
+    sf_ratio = sc / sl[:, None] / matched_bg_frac20[None, :]   # (n, 20) enrichment RATIO
+    perm_ge += (sf_ratio >= obs_enrich20[None, :]).sum(0)
+perm_p20 = perm_ge / N_PERM
+
+# ---- Benjamini-Hochberg FDR over all 20 amino acids ----
+order = np.argsort(perm_p20)
+m = len(AA_LIST)   # 20
 q = np.empty(m)
 prev = 1.0
 for rank, i in enumerate(reversed(order)):
     r = m - rank
-    val = perm_p[i] * m / r
+    val = perm_p20[i] * m / r
     prev = min(prev, val)
     q[i] = prev
-q = np.clip(q, 0, 1)
+q20 = np.clip(q, 0, 1)
+
+# extract focal (6) p and q from the 20-length arrays
+focal_idx = [AA_LIST.index(a) for a in FOCAL]
+focal_perm_p = perm_p20[focal_idx].tolist()
+focal_bh_q = q20[focal_idx].tolist()
 
 # ---- background regression: RPES ~ 6 focal fractions (matched background) ----
 y = rpes[mask]
@@ -129,8 +147,13 @@ out = {
     'top20_fraction_pct': (obs_top_frac * 100).round(3).tolist(),
     'matched_background_fraction_pct': (matched_bg_frac * 100).round(3).tolist(),
     'observed_matched_enrichment': obs_enrich.round(4).tolist(),
-    'permutation_p': perm_p.round(6).tolist(),
-    'bh_fdr_q': q.round(6).tolist(),
+    'all20_residues': AA_LIST,
+    'observed_matched_enrichment_all20': obs_enrich20.round(4).tolist(),
+    'permutation_p_all20': perm_p20.round(6).tolist(),
+    'bh_fdr_q_all20': q20.round(6).tolist(),
+    'focal_permutation_p': [round(x, 6) for x in focal_perm_p],
+    'focal_bh_fdr_q': [round(x, 6) for x in focal_bh_q],
+    'bh_control': 'Benjamini-Hochberg over all 20 standard amino acids (multiplicity control); the six focal residues are reported under this 20-test correction.',
     'background_regression': {
         'n': int(n_matched),
         'R2': round(R2, 6),
